@@ -1,6 +1,6 @@
 {
     "name": "express-botseo",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Redirect your urls for social bots to configure seo metas for them without SSR",
     "main": "index.js",
     "scripts": {
@@ -18,5 +18,8 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/Djibdjib/express-botseo.git"
+    },
+    "peerDependencies": {
+        "express": "^4.17.1"
     }
 }
