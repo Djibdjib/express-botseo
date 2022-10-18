@@ -1,6 +1,6 @@
 # express-botseo
 
-###Express BotSeo Npm Package
+### Express BotSeo Npm Package
 
 This package detect social networks user agent to redirect them on real page witch has graph metas
 It usefull used for no-ssr application.
