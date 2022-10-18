@@ -9,6 +9,7 @@ Your application has to be online
 
 #### Basic example
 
+```js
     const  express  =  require('express');
     const  app  =  new  express();
     const  BotSeo  =  require('express-botseo');
@@ -37,29 +38,36 @@ Your application has to be online
     app.listen(3000, () => {
         console.log('listened on 3000');
     });
+```
 
 You can set configurations
 
-    botseo.setType('article'); // or blog - default is website
-    botseo.setProtocol('http'); // default is https
-    botseo.setSiteName('My site name');
+```js
+botseo.setType("article"); // or blog - default is website
+botseo.setProtocol("http"); // default is https
+botseo.setSiteName("My site name");
+```
 
 You can set prefix and suffix with delimiter
 
-    botseo.setPrefix(true); // default is false
-    //or
-    botseo.setPrefix({ delimiter: ' - '}); // default is ' | '
-    //or
-    botseo.setPrefix({ value: "My prefix"}); // default is siteName
-    //or
-    botseo.setPrefix({ value: "My prefix", delimiter: ' - '});
+```js
+botseo.setPrefix(true); // default is false
+//or
+botseo.setPrefix({ delimiter: " - " }); // default is ' | '
+//or
+botseo.setPrefix({ value: "My prefix" }); // default is siteName
+//or
+botseo.setPrefix({ value: "My prefix", delimiter: " - " });
+```
 
 You can config options in the constructor
 
-    const botseo = new BotSeo(req, {
-        siteName: "My website",
-        protocol: "http",
-        type: "blog",
-        prefix: false,
-        suffix: { delimiter: ' - ', value: "My suffix" }
-    });
+```js
+const botseo = new BotSeo(req, {
+  siteName: "My website",
+  protocol: "http",
+  type: "blog",
+  prefix: false,
+  suffix: { delimiter: " - ", value: "My suffix" },
+});
+```
