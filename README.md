@@ -10,34 +10,34 @@ Your application has to be online
 #### Basic example
 
 ```js
-    const  express  =  require('express');
-    const  app  =  new  express();
-    const  BotSeo  =  require('express-botseo');
+const  express  =  require('express');
+const  app  =  new  express();
+const  BotSeo  =  require('express-botseo');
 
-    app.get('*', (req, res) => {
+app.get('*', (req, res) => {
 
-        // Global configuration
-        const botseo = new BotSeo(req, {
-            siteName: 'My site name',
+    // Global configuration
+    const botseo = new BotSeo(req, {
+        siteName: 'My site name',
+    });
+
+    // Facebook, Twitter, LinkedIn user-agent detection
+    if (botseo.isBot(req.headers['user-agent'])) {
+        const html = botseo.setHtml({
+            title: 'Welcome to my site',
+            description: 'description of my website,
+            imageUrl: 'https://url-of-my-img.png',
         });
+        return res.send(html);
+    }
+    else {
+        return res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    }
+});
 
-        // Facebook, Twitter, LinkedIn user-agent detection
-        if (botseo.isBot(req.headers['user-agent'])) {
-            const html = botseo.setHtml({
-                title: 'Welcome to my site',
-                description: 'description of my website,
-                imageUrl: 'https://url-of-my-img.png',
-            });
-            return res.send(html);
-        }
-        else {
-            return res.sendFile(path.join(__dirname, 'build', 'index.html'));
-        }
-    });
-
-    app.listen(3000, () => {
-        console.log('listened on 3000');
-    });
+app.listen(3000, () => {
+    console.log('listened on 3000');
+});
 ```
 
 You can set configurations
@@ -48,15 +48,19 @@ botseo.setProtocol("http"); // default is https
 botseo.setSiteName("My site name");
 ```
 
-You can set prefix and suffix with delimiter
+You can set prefix and suffix with delimiter for your title
 
 ```js
+// produce "Welcome to my site | My site name
 botseo.setPrefix(true); // default is false
-//or
+
+// produce "Welcome to my site - My site name
 botseo.setPrefix({ delimiter: " - " }); // default is ' | '
-//or
+
+// produce "Welcome to my site | My prefix
 botseo.setPrefix({ value: "My prefix" }); // default is siteName
-//or
+
+// produce "Welcome to my site - My prefix
 botseo.setPrefix({ value: "My prefix", delimiter: " - " });
 ```
 
