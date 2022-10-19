@@ -1,8 +1,9 @@
 {
     "name": "express-botseo",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Redirect your urls for social bots to configure seo metas for them without SSR",
     "main": "index.js",
+    "types": "index.d.ts",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
