@@ -61,11 +61,14 @@ class BotSeo {
   }
 
   isBot(userAgent) {
-    return (
-      userAgent.includes('facebookexternalhit') ||
-      userAgent.includes('Twitterbot') ||
-      userAgent.includes('LinkedInBot')
-    );
+    if(userAgent) {
+      return (
+        userAgent.includes('facebookexternalhit') ||
+        userAgent.includes('Twitterbot') ||
+        userAgent.includes('LinkedInBot')
+      );
+    }
+    else return false;
   }
 
   setHtml(seo) {
