@@ -61,7 +61,7 @@ class BotSeo {
   }
 
   isBot(userAgent) {
-    if(userAgent) {
+    if(userAgent && Array.isArray(userAgent)) {
       return (
         userAgent.includes('facebookexternalhit') ||
         userAgent.includes('Twitterbot') ||
