@@ -1,6 +1,6 @@
 {
     "name": "express-botseo",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "description": "Redirect your urls for social bots to configure seo metas for them without SSR",
     "main": "index.js",
     "types": "index.d.ts",
